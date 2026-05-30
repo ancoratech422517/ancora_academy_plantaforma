@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Âncora Academy — Formação de Excelência</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo" onclick="showSite()">
+        <div class="logo-icon">A</div>
+        <span class="logo-text">Âncora <span>Academy</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#atividades">Atividades</a></li>
+        <li><a href="#sistemas">Sistemas</a></li>
+        <li><a href="#novidades">Novidades</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#cursos" class="btn-outline" style="padding:8px 20px;font-size:13px;">Ver Cursos</a>
+        <button class="nav-admin-btn" onclick="openLogin()">Admin</button>
+      </div>
+      <button class="hamburger" onclick="toggleMobile()" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#cursos" onclick="closeMobile()">Cursos</a>
+  <a href="#atividades" onclick="closeMobile()">Atividades</a>
+  <a href="#sistemas" onclick="closeMobile()">Sistemas</a>
+  <a href="#novidades" onclick="closeMobile()">Novidades</a>
+  <a href="#" onclick="openLogin();closeMobile()">Painel Admin</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MAIN SITE
+═══════════════════════════════════════════════════ -->
+<div id="main-site">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <div class="hero-label">Academia de Referência em Angola</div>
+          <h1 class="hero-title">
+            Forma o teu<br>
+            <em>futuro</em><br>
+            com excelência.
+          </h1>
+          <p class="hero-desc">
+            A Âncora Academy é a plataforma de formação profissional que transforma carreiras com cursos de alto impacto, metodologia prática e suporte especializado.
+          </p>
+          <div class="hero-cta">
+            <a href="#cursos" class="hero-btn-main">Explorar Cursos</a>
+            <a href="#atividades" class="hero-btn-ghost">Ver Atividades</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-num" id="stat-cursos">0+</div>
+              <div class="stat-lbl">Cursos Disponíveis</div>
+            </div>
+            <div>
+              <div class="stat-num" id="stat-estudantes">500+</div>
+              <div class="stat-lbl">Estudantes Formados</div>
+            </div>
+            <div>
+              <div class="stat-num" id="stat-sistemas">0</div>
+              <div class="stat-lbl">Sistemas Lançados</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="hero-card card-1">
+              <div class="hc-icon">💻</div>
+              <div class="hc-title">Desenvolvimento Web</div>
+              <div class="hc-sub">12 módulos · Prático</div>
+              <div class="hc-bar"><div class="hc-bar-fill" style="width:82%"></div></div>
+            </div>
+            <div class="hero-card card-2">
+              <div class="hc-icon">📊</div>
+              <div class="hc-title">Gestão de Empresas</div>
+              <div class="hc-sub">8 módulos · Avançado</div>
+              <div class="hc-bar"><div class="hc-bar-fill" style="width:65%"></div></div>
+            </div>
+            <div class="hero-card card-3">
+              <div class="hc-icon">🎨</div>
+              <div class="hc-title">Design & Criatividade</div>
+              <div class="hc-sub">10 módulos · Iniciante</div>
+              <div class="hc-bar"><div class="hc-bar-fill" style="width:91%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section id="cursos">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="tag">Formação Profissional</span>
+        <h2 class="section-title">Cursos Disponíveis</h2>
+        <p class="section-sub">Escolhe o curso certo para a tua carreira. Todos os cursos foram concebidos por especialistas com foco em resultados práticos.</p>
+      </div>
+      <div class="courses-grid fade-in" id="courses-grid">
+        <div class="empty-state">
+          <div class="empty-icon">📚</div>
+          <p>Nenhum curso disponível ainda.<br>O administrador adicionará em breve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATIVIDADES -->
+  <section id="atividades">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="tag">Agenda & Eventos</span>
+        <h2 class="section-title">Atividades em Destaque</h2>
+        <p class="section-sub">Workshops, seminários, hackathons e muito mais. Participa nas nossas atividades e expande o teu networking.</p>
+      </div>
+      <div class="activities-grid fade-in" id="activities-grid">
+        <div class="empty-state">
+          <div class="empty-icon">🗓️</div>
+          <p>Nenhuma atividade agendada.<br>Fique atento às novidades!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SISTEMAS -->
+  <section id="sistemas">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="tag" style="background:rgba(13,148,136,.15);color:var(--teal-light)">Portfólio Tecnológico</span>
+        <h2 class="section-title">Sistemas Finalizados</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.5)">Soluções tecnológicas desenvolvidas e entregues com sucesso pelos nossos equipas e formandos.</p>
+      </div>
+      <div class="systems-grid fade-in" id="systems-grid">
+        <div class="empty-state" style="color:rgba(255,255,255,.3)">
+          <div class="empty-icon">🚀</div>
+          <p>Em breve os primeiros sistemas serão publicados aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVIDADES -->
+  <section id="novidades">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="tag">Últimas Notícias</span>
+        <h2 class="section-title">Novidades da Âncora</h2>
+        <p class="section-sub">Fique a par de tudo o que acontece na nossa academia. Atualizações, parcerias, lançamentos e conquistas.</p>
+      </div>
+      <div class="news-grid fade-in" id="news-grid">
+        <div class="empty-state">
+          <div class="empty-icon">📰</div>
+          <p>Novidades a caminho! Volte em breve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container" style="position:relative;z-index:1">
+      <span class="tag" style="background:rgba(255,255,255,.15);color:#fff;margin-bottom:20px;display:inline-block">Comece Hoje</span>
+      <h2 class="section-title">Pronto para transformar a tua carreira?</h2>
+      <p>Junta-te a centenas de profissionais que já escolheram a Âncora Academy como parceiro de crescimento.</p>
+      <a href="#cursos" class="btn-primary">Ver Todos os Cursos →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">A</div>
+            <span class="logo-text">Âncora <span>Academy</span></span>
+          </a>
+          <p class="footer-desc">Formação profissional de excelência para impulsionar carreiras e transformar futuros em Angola e além.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Formação</h4>
+          <ul>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#atividades">Atividades</a></li>
+            <li><a href="#sistemas">Sistemas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Academia</h4>
+          <ul>
+            <li><a href="#novidades">Novidades</a></li>
+            <li><a href="#cta">Inscrição</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://wa.me/244946212157" target="_blank">WhatsApp</a></li>
+            <li><a href="#cursos">Comprar Curso</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Âncora Academy. Todos os direitos reservados.</span>
+        <span>Feito com ❤️ em Angola</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- end #main-site -->
+
+<!-- ═══════════════════════════════════════════════════
+     ADMIN PANEL
+═══════════════════════════════════════════════════ -->
+<div id="admin-panel">
+  <div class="admin-header">
+    <div class="container">
+      <div class="admin-header-inner">
+        <div style="display:flex;align-items:center;gap:16px">
+          <a href="#" class="logo" onclick="showSite()">
+            <div class="logo-icon">A</div>
+            <span class="logo-text" style="color:#fff">Âncora <span>Academy</span></span>
+          </a>
+          <span style="color:rgba(255,255,255,.3);font-size:13px">· Painel Administrativo</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="admin-nav" id="admin-nav">
+            <button class="admin-tab active" data-tab="cursos">Cursos</button>
+            <button class="admin-tab" data-tab="atividades">Atividades</button>
+            <button class="admin-tab" data-tab="sistemas">Sistemas</button>
+            <button class="admin-tab" data-tab="novidades">Novidades</button>
+          </div>
+          <button class="admin-logout" onclick="adminLogout()">Sair</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-content">
+    <div class="container">
+
+      <!-- TAB: CURSOS -->
+      <div class="admin-section active" id="tab-cursos">
+        <div class="admin-section-header">
+          <h2>Gestão de Cursos</h2>
+          <button class="btn-primary" onclick="openModal('course-modal')">+ Novo Curso</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome do Curso</th>
+                <th>Categoria</th>
+                <th>Duração</th>
+                <th>Nível</th>
+                <th>Preço</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="admin-courses-tbody">
+              <tr><td colspan="6" style="text-align:center;color:var(--gray-400);padding:40px">Nenhum curso registado ainda.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB: ATIVIDADES -->
+      <div class="admin-section" id="tab-atividades">
+        <div class="admin-section-header">
+          <h2>Gestão de Atividades</h2>
+          <button class="btn-primary" onclick="openModal('activity-modal')">+ Nova Atividade</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Data</th>
+                <th>Localização</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="admin-activities-tbody">
+              <tr><td colspan="5" style="text-align:center;color:var(--gray-400);padding:40px">Nenhuma atividade registada ainda.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB: SISTEMAS -->
+      <div class="admin-section" id="tab-sistemas">
+        <div class="admin-section-header">
+          <h2>Gestão de Sistemas</h2>
+          <button class="btn-primary" onclick="openModal('system-modal')">+ Novo Sistema</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome do Sistema</th>
+                <th>Ícone</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="admin-systems-tbody">
+              <tr><td colspan="4" style="text-align:center;color:var(--gray-400);padding:40px">Nenhum sistema registado ainda.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB: NOVIDADES -->
+      <div class="admin-section" id="tab-novidades">
+        <div class="admin-section-header">
+          <h2>Gestão de Novidades</h2>
+          <button class="btn-primary" onclick="openModal('news-modal')">+ Nova Notícia</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Data</th>
+                <th>Excerto</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="admin-news-tbody">
+              <tr><td colspan="4" style="text-align:center;color:var(--gray-400);padding:40px">Nenhuma notícia registada ainda.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MODALS
+═══════════════════════════════════════════════════ -->
+
+<!-- Login Modal -->
+<div class="overlay" id="login-overlay">
+  <div class="modal" style="max-width:400px">
+    <button class="modal-close" onclick="closeOverlay('login-overlay')">✕</button>
+    <div style="text-align:center;margin-bottom:28px">
+      <div class="logo-icon" style="width:52px;height:52px;border-radius:14px;font-size:26px;margin:0 auto 14px">A</div>
+      <h2>Acesso Administrativo</h2>
+      <p>Introduz as tuas credenciais para aceder ao painel de gestão.</p>
+    </div>
+    <div class="form-group">
+      <label>Utilizador</label>
+      <input type="text" id="login-user" placeholder="Utilizador" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>Palavra-passe</label>
+      <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <div id="login-error" style="color:#dc2626;font-size:13px;margin-bottom:14px;display:none">Credenciais incorretas. Tente novamente.</div>
+    <button class="btn-primary" style="width:100%;padding:14px" onclick="doLogin()">Entrar no Painel</button>
+  </div>
+</div>
+
+<!-- Course Modal -->
+<div class="overlay" id="course-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOverlay('course-modal')">✕</button>
+    <h2 id="course-modal-title">Novo Curso</h2>
+    <p>Preenche todos os campos para adicionar ou actualizar um curso.</p>
+    <input type="hidden" id="course-edit-id">
+    <div class="form-group">
+      <label>Nome do Curso *</label>
+      <input type="text" id="c-name" placeholder="ex: Desenvolvimento Web Full Stack">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Categoria *</label>
+        <select id="c-cat">
+          <option value="">Selecionar...</option>
+          <option>Tecnologia</option>
+          <option>Gestão</option>
+          <option>Design</option>
+          <option>Marketing</option>
+          <option>Contabilidade</option>
+          <option>Inglês</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nível *</label>
+        <select id="c-level">
+          <option value="">Selecionar...</option>
+          <option>Iniciante</option>
+          <option>Intermédio</option>
+          <option>Avançado</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Duração</label>
+        <input type="text" id="c-duration" placeholder="ex: 3 meses">
+      </div>
+      <div class="form-group">
+        <label>Preço (AOA) *</label>
+        <input type="number" id="c-price" placeholder="ex: 50000">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Ícone (emoji)</label>
+      <input type="text" id="c-icon" placeholder="ex: 💻 🎨 📊">
+    </div>
+    <div class="form-group">
+      <label>Descrição *</label>
+      <textarea id="c-desc" placeholder="Descreve o curso, o que os alunos vão aprender..."></textarea>
+    </div>
+    <div style="display:flex;gap:12px">
+      <button class="btn-outline" style="flex:1" onclick="closeOverlay('course-modal')">Cancelar</button>
+      <button class="btn-primary" style="flex:2" onclick="saveCourse()">Guardar Curso</button>
+    </div>
+  </div>
+</div>
+
+<!-- Activity Modal -->
+<div class="overlay" id="activity-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOverlay('activity-modal')">✕</button>
+    <h2 id="activity-modal-title">Nova Atividade</h2>
+    <p>Regista uma nova atividade, evento ou workshop.</p>
+    <input type="hidden" id="activity-edit-id">
+    <div class="form-group">
+      <label>Título da Atividade *</label>
+      <input type="text" id="a-title" placeholder="ex: Workshop de Excel Avançado">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Data *</label>
+        <input type="date" id="a-date">
+      </div>
+      <div class="form-group">
+        <label>Localização</label>
+        <input type="text" id="a-location" placeholder="ex: Luanda, Angola">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Ícone (emoji)</label>
+      <input type="text" id="a-icon" placeholder="ex: 🎤 📋 🏆">
+    </div>
+    <div class="form-group">
+      <label>Descrição *</label>
+      <textarea id="a-desc" placeholder="Descreve a atividade..."></textarea>
+    </div>
+    <div style="display:flex;gap:12px">
+      <button class="btn-outline" style="flex:1" onclick="closeOverlay('activity-modal')">Cancelar</button>
+      <button class="btn-primary" style="flex:2" onclick="saveActivity()">Guardar Atividade</button>
+    </div>
+  </div>
+</div>
+
+<!-- System Modal -->
+<div class="overlay" id="system-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOverlay('system-modal')">✕</button>
+    <h2 id="system-modal-title">Novo Sistema</h2>
+    <p>Adiciona um sistema desenvolvido e finalizado.</p>
+    <input type="hidden" id="system-edit-id">
+    <div class="form-group">
+      <label>Nome do Sistema *</label>
+      <input type="text" id="s-name" placeholder="ex: Sistema de Gestão Escolar">
+    </div>
+    <div class="form-group">
+      <label>Ícone (emoji)</label>
+      <input type="text" id="s-icon" placeholder="ex: 🏫 🏥 🛒">
+    </div>
+    <div class="form-group">
+      <label>Descrição *</label>
+      <textarea id="s-desc" placeholder="Descreve o sistema, funcionalidades principais..."></textarea>
+    </div>
+    <div style="display:flex;gap:12px">
+      <button class="btn-outline" style="flex:1" onclick="closeOverlay('system-modal')">Cancelar</button>
+      <button class="btn-primary" style="flex:2" onclick="saveSystem()">Guardar Sistema</button>
+    </div>
+  </div>
+</div>
+
+<!-- News Modal -->
+<div class="overlay" id="news-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOverlay('news-modal')">✕</button>
+    <h2 id="news-modal-title">Nova Notícia</h2>
+    <p>Publica uma novidade ou atualização da academia.</p>
+    <input type="hidden" id="n-edit-id">
+    <div class="form-group">
+      <label>Título *</label>
+      <input type="text" id="n-title" placeholder="ex: Âncora Academy abre novas turmas em Outubro">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Data *</label>
+        <input type="date" id="n-date">
+      </div>
+      <div class="form-group">
+        <label>Ícone (emoji)</label>
+        <input type="text" id="n-icon" placeholder="ex: 🎉 📢 🏆">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Excerto / Conteúdo *</label>
+      <textarea id="n-excerpt" placeholder="Escreve o conteúdo da notícia..."></textarea>
+    </div>
+    <div style="display:flex;gap:12px">
+      <button class="btn-outline" style="flex:1" onclick="closeOverlay('news-modal')">Cancelar</button>
+      <button class="btn-primary" style="flex:2" onclick="saveNews()">Publicar Notícia</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════ -->
+<script src="../static/js/script.js"></script>
+</body>
+</html>
